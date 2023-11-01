@@ -1,0 +1,16 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_indices = {}  # Dictionary to store indices of seen numbers
+        
+        for index in range(len(nums)):
+            num = nums[index]
+            complement = target - num
+            
+            # Check if the complement of the current number is in the dictionary
+            if complement in num_indices:
+                return [num_indices[complement], index]
+            
+            # If not, add the current number and its index to the dictionary
+            num_indices[num] = index
+        
+        return []  # Return an empty list if no such pair is found
