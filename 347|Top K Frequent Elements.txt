@@ -1,0 +1,13 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        occur = {}
+        for num in nums:
+            if num in occur:
+                occur[num] = occur[num] + 1
+            else:
+                occur[num] = 1
+                
+        occured = sorted(occur, key=lambda x: occur[x], reverse=True)
+        return occured[:k]
+
+We almost got through this without help. The for/if functions came naturally with a little bit of context. We even sorted to return but a test case with -numbers made it fail. The solution wasn't natural but the lambda function does make sense.
